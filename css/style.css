@@ -37,20 +37,30 @@
   --font-title-box: 700 2.4rem var(--family-titles);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg-1);
   font: var(--font-text);
 }
 
-h2 {
+main {
+  margin-top: calc( var(--header-h) + 3.2rem );
+}
+
+.--title {
   font: var(--font-title);
+  color: var(--dark);
 }
 
-h3 {
+.--title-box {
   font: var(--font-title-box);
+  color: var(--title-color);
 }
 
-.sections-padding {
+.--sections-padding {
   padding: var(--section-p);
 }
 
@@ -113,17 +123,38 @@ h3 {
   color: var(--primary-color);
 }
 
-.header__menu {
-  width: 2.4rem;
-  height: 2.4rem;
-  background: url("../images/menu.png") no-repeat;
-  cursor: pointer;
+/* menu links hover */
+
+.menu__list a {
+  position: relative;
+  transition: color .3s;
 }
+
+.menu__list a:hover {
+  color: var(--primary-color);
+}
+
+.menu__list a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: var(--primary-color);
+  position: absolute;
+  left: 0;
+  bottom: -2.4rem;
+  transition: width .3s;
+}
+
+.menu__list a:hover::after {
+  width: 100%;
+}
+
+/* icons */
+
 
 /* home */
 .home {
   width: 100%;
-  margin-top: var(--header-h);
   overflow: hidden;
 }
 
@@ -161,11 +192,18 @@ h3 {
   margin: 1.6rem 0 3.2rem 0;
 }
 
-/* divider */
+/* divider-1 */
 
-.divider {
-  
+.divider-1 {
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(270deg, hsl( var(--hue) , 36%, 57%) 0%, hsla( var(--hue) , 65%, 88%, 0.34) 100%);
 }
 
+/* divider-1 */
 
-
+.divider-2 {
+  width: 100%;
+  height: 0.1rem;
+  background: linear-gradient(270deg, hsla( var(--hue) , 65%, 88%, 0.34) 0%, hsl( var(--hue) , 36%, 57%) 100% );
+}
