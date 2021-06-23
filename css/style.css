@@ -149,8 +149,59 @@ main {
   width: 100%;
 }
 
-/* icons */
+/* menu */
+.menu__list {
+  opacity: 0;
+  visibility: hidden;
+}
 
+.icon-close {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.icon-menu {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.icon-menu, .icon-close {
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  position: absolute;
+  right: 2.4rem;
+}
+
+/* --show-menu */
+.--show-menu .menu__list {
+  opacity: 1;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-2);
+  position: fixed;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+
+.--show-menu .grid {
+  gap: 6.2rem;
+  place-content: center;
+}
+
+.--show-menu .icon-close {
+  opacity: 1;
+  visibility: visible;
+  cursor: pointer;
+  /* transition banaca*/
+}
+
+.--show-menu .icon-menu {
+  opacity: 0;
+  visibility: hidden;
+}
 
 /* home */
 .home {
@@ -200,7 +251,7 @@ main {
   background: linear-gradient(270deg, hsl( var(--hue) , 36%, 57%) 0%, hsla( var(--hue) , 65%, 88%, 0.34) 100%);
 }
 
-/* divider-1 */
+/* divider-2 */
 
 .divider-2 {
   width: 100%;
