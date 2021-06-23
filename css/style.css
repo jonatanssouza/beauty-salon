@@ -19,7 +19,7 @@
   --dark: hsl( var(--hue), 33%, 15% );
   --primary-color: hsl( var(--hue), 83%, 63% );
   --secondary-color: hsl( var(--hue), 22%, 83% );
-  --hover-color: hsl(var(--hue) 57% 53%);
+  --button-hover-color: hsl(var(--hue) 57% 53%);
   --light-gray: hsla(0, 0%, 89%, 1);
   --bg-1: hsla(0, 0%, 98%, 1);
   --bg-2: hsla(0, 0%, 100%, 1);
@@ -44,6 +44,7 @@ html {
 body {
   background: var(--bg-1);
   font: var(--font-text);
+  -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -53,15 +54,22 @@ main {
 .--title {
   font: var(--font-title);
   color: var(--dark);
+  -webkit-font-smoothing: auto;
 }
 
 .--title-box {
+  -webkit-font-smoothing: auto;
   font: var(--font-title-box);
   color: var(--title-color);
+  margin-bottom: 1.2rem;
 }
 
 .--sections-padding {
   padding: var(--section-p);
+}
+
+.--sections-padding .--title {
+  margin-bottom: 1.6rem;
 }
 
 .container {
@@ -92,7 +100,11 @@ main {
 }
 
 .button:hover {
-  background: var(--hover-color);
+  background: var(--button-hover-color);
+}
+
+.--section-header {
+  margin-bottom: 6.4rem;
 }
 
 /* header */
@@ -103,6 +115,12 @@ main {
   top: 0;
   left: 0;
   z-index: 1;
+  background: var(--bg-1);
+}
+
+/* scroll header shadow */
+.--scroll-shadow {
+  box-shadow: 0 0 1.5rem hsla( var(--hue), 33%, 15%, 0.1 );
 }
 
 .header__navigation {
@@ -153,24 +171,31 @@ main {
 .menu__list {
   opacity: 0;
   visibility: hidden;
-}
-
-.icon-close {
-  opacity: 0;
-  visibility: hidden;
+  top: -28rem;
+  transition: .2s;
+  display: none;
 }
 
 .icon-menu {
   visibility: visible;
   opacity: 1;
-  cursor: pointer;
-}
-
-.icon-menu, .icon-close {
   color: var(--primary-color);
   font-size: 2.4rem;
+  cursor: pointer;
   position: absolute;
   right: 2.4rem;
+}
+
+.icon-close {
+  opacity: 0;
+  visibility: hidden;
+  color: var(--primary-color);
+  font-size: 2.4rem;
+  cursor: pointer;
+  position: absolute;
+  right: 2.4rem;
+  top: -2.4rem;
+  transition: .2s;
 }
 
 /* --show-menu */
@@ -184,18 +209,18 @@ main {
   left: 0;
   top: 0;
   text-align: center;
+  display: grid;
+  place-content: center;
 }
 
 .--show-menu .grid {
   gap: 6.2rem;
-  place-content: center;
 }
 
 .--show-menu .icon-close {
   opacity: 1;
   visibility: visible;
-  cursor: pointer;
-  /* transition banaca*/
+  top: 2.4rem;
 }
 
 .--show-menu .icon-menu {
@@ -229,8 +254,8 @@ main {
   height: 100%;
   background: var(--secondary-color);
   position: absolute;
-  top: -17.3%;
-  left: 17.3%;
+  top: -16.8%;
+  left: 16.8%;
   border-radius: 0.4rem;
 }
 
@@ -251,10 +276,69 @@ main {
   background: linear-gradient(270deg, hsl( var(--hue) , 36%, 57%) 0%, hsla( var(--hue) , 65%, 88%, 0.34) 100%);
 }
 
+/* about */
+.about {
+  background: var(--bg-2); 
+}
+
+.about .container {
+  margin: 0;
+}
+
+.about__image {
+  position: relative;
+}
+
+.about__image img {
+  border-radius: 0.4rem;
+  position: relative;
+}
+
+.about__image::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-color);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  border-radius: 0.4rem;
+  z-index: 0;
+}
+
+.about__text {
+  margin: 0 2.4rem;
+}
+
 /* divider-2 */
 
 .divider-2 {
   width: 100%;
   height: 0.1rem;
   background: linear-gradient(270deg, hsla( var(--hue) , 65%, 88%, 0.34) 0%, hsl( var(--hue) , 36%, 57%) 100% );
+}
+
+/* services */
+.services .grid {
+  gap: 2.4rem;
+}
+
+.services__header strong {
+  color: var(--primary-color);
+}
+
+.card {
+  height: 37.2rem;
+  padding: 5.8rem 3.2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  border-bottom: .4rem solid var(--primary-color);
+  border-radius: .4rem .4rem 0 0;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 2.4rem;
+  font-size: 8rem;
+  color: var(--primary-color);
 }
