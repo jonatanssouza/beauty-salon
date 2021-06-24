@@ -76,8 +76,7 @@
             <h2 class="--title">Serviços</h2>
             <p>Com mais de 10 anos no mercado, o <strong>Beautysalon</strong> já conquistou clientes de inúmeros países com seus tratamentos exclusivos e totalmente naturais.</p>     
           </header><!--services__header-->
-          
-          <div class="services_cards-container grid">
+          <div class="services__cards-container grid">
             <div class="card">
               <i class="icon-woman-hair"></i>
               <h3 class="--title-box">Terapia capilar</h3>
@@ -104,7 +103,6 @@
           <header class="testimonials__header  --section-header">
             <h2 class="--title">Depoimentos de quem já passou por aqui</h2>
           </header>
-          <div class=".box"></div>
           <div class="testimonials__slider swiper-container">
             <div class="swiper-wrapper">
                 <div class="slider__testimony swiper-slide">
@@ -149,15 +147,40 @@
           </div><!--testimonials__slider-->
         </div><!--container-->
       </section><!--testimonials-->
+
       <div class="divider-2"></div><!--divider-2-->
 
+      <section class="contact --sections-padding" id="contact">
+        <div class="container grid">
+          <div class="contact__text">
+            <h2 class="--title">Entre em contato com a gente!</h2>
+            <p>Entre em contato com a Beautysalon, queremos tirar suas dúvidas, ouvir suas críticas e sugestões.</p>
+            <a class="contact__button button" 
+              href="https://api.whatsapp.com/send?phone=+5599123456789&text=Oi! Gostaria de marcar um horário." 
+              id="wpp" 
+              target="_blank">
+              <i class="icon-whatsapp"></i>
+              Entrar em contato
+            </a>
+          </div><!--contact__header-->
+          <div class="grid contact__forms">
+            <div><i class="icon-phone"></i>(99)12345-6789</div>
+            <div><i class="icon-map-pin"></i>Rua Tal, 99 - Bairro de Tal</div>
+            <div><i class="icon-mail"></i>beautysalon@mail.com</div>
+          </div>
+        </div><!--container-->
+      </section><!--contact-->
+      <div class="divider-1"></div><!--divider-1-->
 
     </main>
-    <footer>
+    <footer class="footer" id="footer">
     
     </footer>
-    <!--swiper and js-->
+    <!--swiper-->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--scrollreveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--my js-->
     <script src="./js/main.js"></script>
   </body>
 </html>

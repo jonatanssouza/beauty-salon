@@ -40,3 +40,21 @@ const swiper = new Swiper( '.swiper-container',  {
   loop: true
 
  } );
+
+ // When scrolling, show sections appearing
+ const scrollReveal = ScrollReveal( {
+   origin: 'top',
+   distance: '30px',
+   duration: 500,
+   reset: true
+ } );
+
+ scrollReveal.reveal( 
+   `.home__image, .home__text,
+    .about__image, .about__text,
+    .services__header, .services__cards-container, .card,
+    .testimonials__header, .testimonials__slider,
+    .contact__text, .contact__forms,
+    .footer`,
+   { interval: 100 }
+);

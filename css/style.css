@@ -19,7 +19,7 @@
   --dark: hsl( var(--hue), 33%, 15% );
   --primary-color: hsl( var(--hue), 83%, 63% );
   --secondary-color: hsl( var(--hue), 22%, 83% );
-  --button-hover-color: hsl(var(--hue) 57% 53%);
+  --button-hover-bg: hsl(var(--hue) 57% 53%);
   --light-gray: hsla(0, 0%, 89%, 1);
   --bg-1: hsla(0, 0%, 98%, 1);
   --bg-2: hsla(0, 0%, 100%, 1);
@@ -101,7 +101,7 @@ main {
 }
 
 .button:hover {
-  background: var(--button-hover-color);
+  background: var(--button-hover-bg);
 }
 
 .--section-header {
@@ -212,6 +212,7 @@ main {
   text-align: center;
   display: grid;
   place-content: center;
+  z-index: 100;
 }
 
 .--show-menu .grid {
@@ -222,6 +223,7 @@ main {
   opacity: 1;
   visibility: visible;
   top: 2.4rem;
+  z-index: 101;
 }
 
 .--show-menu .icon-menu {
@@ -349,8 +351,12 @@ main {
   background: var(--bg-2);
 }
 
+.testimonials .container {
+  margin: 0;
+}
+
 .testimonials .--section-header {
-  margin-bottom: 0;
+  margin: 0 2.4rem 0 2.4rem;
 }
 
 .slider__testimony blockquote {
@@ -389,6 +395,10 @@ main {
 }
 
 /* swiper */
+.swiper-container {
+  z-index: 0;
+}
+
 .swiper-slide {
   height: auto;
   padding: 6.4rem 1.6rem;
@@ -408,9 +418,29 @@ main {
   background: var(--primary-color);
 }
 
-.box {
-  width: 100px;
-  height: 64px;
-  margin-top: -16px;
-  background: var(--primary-color);
+/* Contact */
+.contact > .grid {
+  gap: 6.4rem;
+}
+
+.contact__button {
+  margin-top: 3.2rem;
+}
+
+.icon-whatsapp {
+  font-size: 2.4rem;
+  margin-right: 1rem;
+}
+
+.contact__forms div {
+  display: flex;
+  align-items: center;
+}
+
+.icon-phone,
+.icon-map-pin,
+.icon-mail {
+  margin-right: 1.2rem;
+  font-size: 2.4rem;
+  color: var(--primary-color);
 }
