@@ -9,10 +9,11 @@
     <!--fonts-->
     <link rel = "preconnect" href = "https://fonts.gstatic.com">
     <link href = "https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Raleway:wght@400;500;700&display=swap" rel =" stylesheet ">
-    <!--css-->
-    <link rel="stylesheet" href="./css/style.css">
     <!--swiper-->
+    <!--https://swiperjs.com/demos-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!--css-->
+    <link rel="stylesheet" href="./css/style.css">  
     <title>Beauty Salon</title>
   </head>
   <body>
@@ -99,58 +100,53 @@
       <div class="divider-1"></div><!--divider-1-->
 
       <section class="testimonials --sections-padding" id="testimonials">
-        <div class="container grid">
+        <div class="container">
           <header class="testimonials__header  --section-header">
             <h2 class="--title">Depoimentos de quem já passou por aqui</h2>
           </header>
-    
-          <div class="testimonials__slider">
-            <div class="slider__testimony">
-              <blockquote>
-                <p>
-                  <span class="quotation">&ldquo;</span>
-                  Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.
-                </p>
-                <cite>
-                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de perfil de Wanessa Souza">
-                  Wanessa Souza
-                </cite>
-            </blockquote>
-          <!--
-            <div class="slider__testimony">
-              <blockquote>
-                <p>
-                  <span class="quotation">&ldquo;</span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae beatae reiciendis recusandae error amet possimus dolor.
-                </p>
-                <cite>
-                  <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Foto de perfil de Roberta Mirando">
-                  Roberta Miranda
-                </cite>
-              </blockquote> 
-            </div>
-            <div class="slider__testimony">
-              <blockquote>
-                <p>
-                  <span class="quotation">&ldquo;</span>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae beatae reiciendis recusandae error amet possimus dolor.
-                </p>
-                <cite>
-                  <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Foto de perfil Júlia Silveira">
-                  Júlia Silveira
-                </cite>
-              </blockquote> 
-            </div>
-          -->
-            
+          <div class=".box"></div>
+          <div class="testimonials__slider swiper-container">
+            <div class="swiper-wrapper">
+                <div class="slider__testimony swiper-slide">
+                <blockquote>
+                  <p>
+                    <span class="quotation">&ldquo;</span>
+                    Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Foto de perfil de Wanessa Souza">
+                    Wanessa Souza
+                  </cite>
+                </blockquote>
+                </div>
+                <div class="slider__testimony swiper-slide">
+                <blockquote>
+                  <p>
+                    <span class="quotation">&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae beatae reiciendis recusandae error amet possimus dolor.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Foto de perfil de Roberta Mirando">
+                    Roberta Miranda
+                  </cite>
+                </blockquote> 
+                </div>
+                <div class="slider__testimony swiper-slide">
+                <blockquote>
+                  <p>
+                    <span class="quotation">&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae beatae reiciendis recusandae error amet possimus dolor.
+                  </p>
+                  <cite>
+                    <img src="https://randomuser.me/api/portraits/women/20.jpg" alt="Foto de perfil Júlia Silveira">
+                    Júlia Silveira
+                  </cite>
+                </blockquote> 
+                </div>
+            </div><!--swiper-wraper-->
+          <div class="swiper-pagination"></div>
 
           </div><!--testimonials__slider-->
-
-          <div class="testimonials__dots">
-            <div class="dots --active"></div>
-            <div class="dots"></div>
-            <div class="dots"></div>
-          </div>
         </div><!--container-->
       </section><!--testimonials-->
       <div class="divider-2"></div><!--divider-2-->
