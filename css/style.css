@@ -21,11 +21,11 @@
   --secondary-color: hsl( var(--hue), 22%, 83% );
   --button-hover-bg: hsl(var(--hue) 57% 53%);
   --light-gray: hsla(0, 0%, 89%, 1);
-  --bg-1: hsla(0, 0%, 98%, 1);
-  --bg-2: hsla(0, 0%, 100%, 1);
+  --bg-gray: hsla(0, 0%, 98%, 1);
+  --bg-white: hsla(0, 0%, 100%, 1);
   --title-color: hsl(0, 0%, 0%);
   --text-color: hsl(0, 0%, 46%);
-  --text-color-button: var(--bg-1);
+  --text-color-light: var(--bg-gray);
 
   /* fonts */
   --family-titles: 'Montserrat', sans-serif;
@@ -42,7 +42,7 @@ html {
 }
 
 body {
-  background: var(--bg-1);
+  background: var(--bg-gray);
   font: var(--font-text);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
@@ -94,7 +94,7 @@ main {
   padding: 0 3.2rem;
   height: 5.6rem;
   background: var(--primary-color);
-  color: var(--text-color-button);
+  color: var(--text-color-light);
   border-radius: 0.4rem;
   cursor: pointer;
   transition: background .3s;
@@ -116,7 +116,7 @@ main {
   top: 0;
   left: 0;
   z-index: 1;
-  background: var(--bg-1);
+  background: var(--bg-gray);
 }
 
 /* scroll header shadow */
@@ -132,13 +132,13 @@ main {
   align-items: center;
 }
 
-.header__logo {
+.--logo {
   display: inline-block;
   font: var(--font-logo);
   color: var(--dark);
 }
 
-.header__logo span {
+.--logo span {
   color: var(--primary-color);
 }
 
@@ -185,6 +185,9 @@ main {
   cursor: pointer;
   position: absolute;
   right: 2.4rem;
+  transform: rotateZ(0);
+  transition: .3s;
+
 }
 
 .icon-close {
@@ -194,9 +197,10 @@ main {
   font-size: 2.4rem;
   cursor: pointer;
   position: absolute;
-  right: 2.4rem;
-  top: -2.4rem;
-  transition: .2s;
+  right: -2.4rem;
+  top: 2.4rem;
+  transform: rotateZ(0);
+  transition: .3s;
 }
 
 /* --show-menu */
@@ -205,7 +209,7 @@ main {
   visibility: visible;
   width: 100vw;
   height: 100vh;
-  background: var(--bg-2);
+  background: var(--bg-white);
   position: fixed;
   left: 0;
   top: 0;
@@ -222,13 +226,17 @@ main {
 .--show-menu .icon-close {
   opacity: 1;
   visibility: visible;
-  top: 2.4rem;
+  right: 2.4rem;
   z-index: 101;
+  transform: rotateZ(-720deg);
 }
 
 .--show-menu .icon-menu {
   opacity: 0;
   visibility: hidden;
+  right: -2.4rem;
+  transform: rotateZ(720deg);
+
 }
 
 /* home */
@@ -281,7 +289,7 @@ main {
 
 /* about */
 .about {
-  background: var(--bg-2); 
+  background: var(--bg-white); 
 }
 
 .about .container {
@@ -348,7 +356,7 @@ main {
 
 /* testimonials */
 .testimonials {
-  background: var(--bg-2);
+  background: var(--bg-white);
 }
 
 .testimonials .container {
@@ -444,3 +452,87 @@ main {
   font-size: 2.4rem;
   color: var(--primary-color);
 }
+
+/* footer */
+.footer {
+  background: var(--primary-color);
+  padding: 6.4rem 0;
+}
+
+.footer__logo {
+  margin-bottom: 2.4rem;
+}
+
+.footer__logo span {
+  color: var(--bg-white);
+}
+
+.footer__brand p:first-of-type {
+  margin-bottom: 1.2rem;
+}
+
+.footer__brand p {
+  color: var(--text-color-light);
+}
+
+.footer__social a {
+  margin-right: 3.2rem;
+  transition: .3s;
+  display: inline-block;
+}
+
+.footer__social i {
+  font-size: 2.4rem;
+  color: var(--text-color-light);
+}
+
+.footer__social a:hover {
+  transform: translateY(-20%);
+}
+
+/* arrow up */
+.back-to-top {
+  background: var(--primary-color);
+  position: fixed;
+  right: 1rem;
+  bottom: 0;
+  padding: 1.2rem;
+  font-size: 2.4rem;
+  color: var(--text-color-light);
+  clip-path: circle();
+  line-height: 0;
+  transition: .3s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.back-to-top:hover {
+  background: var(--button-hover-bg);
+}
+
+.--show-arrow {
+  opacity: 1;
+  visibility: visible;
+  bottom: 1rem;
+}
+
+/* responsive */
+/* Greater than 1200px */
+@media ( min-width: 1200px ) {
+  main {
+    margin-top: var(--header-h);
+  }
+  .--sections-padding {
+    padding: 16rem 0;
+  }
+}
+/* Greater than 1023px */
+/* Greater than 992px */
+@media ( min-width: 992px ) {
+   :root {
+    --font-logo: 700 2.4rem var(--family-titles);
+    --font-title: 700 3.6rem var(--family-titles);
+    --font-text: 400 1.8rem var(--family-text);
+   }
+}
+/* Greater than 767px */

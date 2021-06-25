@@ -1,35 +1,47 @@
-// When I click on icon, add/remove --show-menu class
+/* When I click on icon, add/remove --show-menu class */
 const nav = document.querySelector( '.header__navigation' );
 const toggleIcon = nav.querySelectorAll( '.toggle' );
-
 for( const icon of toggleIcon ) {
   icon.addEventListener( 'click', function() {
     nav.classList.toggle( '--show-menu' );
   });
 }
 
-// When I click on a link in the menu, close the menu
+/* When I click on a link in the menu, close the menu */
 const links = nav.querySelectorAll( '.menu__list a' );
-
 for ( const link of links ) {
   link.addEventListener( 'click', function() {
     nav.classList.remove( '--show-menu' );
   } );
 }
 
-// When scrolling the page, add the box's shadow to the header
-const header = document.querySelector('.header');
-const navHeight = header.offsetHeight;
+/* When scroll the page, show the chevron-up  */
+function showBackToTop() {
+  const chevron = document.querySelector( '.back-to-top' );
+  if( window.scrollY > 400 ) {
+    chevron.classList.add('--show-arrow');
+  } else {
+    chevron.classList.remove('--show-arrow');
+  }
+}
 
-window.addEventListener( 'scroll', function() {
+/* When scrolling the page, add the box's shadow to the header */
+function changeHeaderShadow() {
+  const header = document.querySelector('.header');
+  const navHeight = header.offsetHeight;
   if( window.scrollY >= navHeight ) {
     header.classList.add('--scroll-shadow');
   } else {
     header.classList.remove('--scroll-shadow');
   }
-} );
+}
 
-// Slider (swiper)
+window.addEventListener( 'scroll', function() {
+  changeHeaderShadow();
+  showBackToTop();
+});
+
+/* Slider (swiper) */
 const swiper = new Swiper( '.swiper-container',  {
   slidesPerView: 1,
   pagination: {
@@ -41,7 +53,7 @@ const swiper = new Swiper( '.swiper-container',  {
 
  } );
 
- // When scrolling, show sections appearing
+ /* When scrolling, show sections appearing */
  const scrollReveal = ScrollReveal( {
    origin: 'top',
    distance: '30px',
@@ -56,5 +68,7 @@ const swiper = new Swiper( '.swiper-container',  {
     .testimonials__header, .testimonials__slider,
     .contact__text, .contact__forms,
     .footer`,
-   { interval: 100 }
+   { interval: 75 }
 );
+
+
