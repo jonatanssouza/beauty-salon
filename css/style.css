@@ -49,7 +49,7 @@ body {
 }
 
 main {
-  margin-top: calc( var(--header-h) + 3.2rem );
+  margin-top: var(--header-h);
 }
 
 .--title {
@@ -66,7 +66,8 @@ main {
 }
 
 .--sections-padding {
-  padding: var(--section-p);
+  --pad: calc( (var(--section-p)) + (var(--header-h)) );
+  padding: var(--pad) 0;
 }
 
 .--sections-padding .--title {
@@ -80,6 +81,7 @@ main {
 .img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .grid {
@@ -314,7 +316,6 @@ main {
   top: -8.3%;
   left: -33%;
   border-radius: 0.4rem;
-  z-index: 0;
 }
 
 .about__text {
@@ -475,8 +476,12 @@ main {
   color: var(--text-color-light);
 }
 
+.footer__social.grid {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
 .footer__social a {
-  margin-right: 3.2rem;
   transition: .3s;
   display: inline-block;
 }
@@ -519,11 +524,109 @@ main {
 /* responsive */
 /* Greater than 1200px */
 @media ( min-width: 1200px ) {
+  .--sections-padding {
+    padding: 16rem 0;
+  }
+
   main {
     margin-top: var(--header-h);
   }
-  .--sections-padding {
-    padding: 16rem 0;
+
+  .container {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .button {
+    height: 5rem;
+  }
+
+  .--section-header {
+    max-width: 55rem;
+    margin: 0 auto 6.4rem auto;
+  }
+
+  /* menu */
+  .menu__list {
+    display: flex;
+    gap: 3.2rem;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .menu__list a {
+    font: var(--font-text);
+    color: var(--dark);
+  }
+
+  .icon-menu, .icon-close {
+    display: none;
+  }
+
+  /* home */
+  .home .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+    gap: 11.8rem;
+  }
+
+  .home__image {
+    order: 1;
+  }
+
+  .home__image img {
+    right: 4.2rem;
+  }
+
+  .home__image::before {
+    top: -13.8%;
+    left: 8%;
+  }
+
+  .home__text {
+    max-width: 40rem;
+    margin: 0;
+    order: 0;
+    text-align: left;
+  }
+
+  /* about */
+  .about .container {
+    margin: 0 auto;
+    grid-auto-flow: column;
+    gap: 6.4rem;
+  }
+
+  .about__image {
+    margin: 0;
+    left: 0;
+  }
+
+  .about__image img {
+    border-radius: 0 10rem 2rem 10rem;
+  }
+
+  .about__image:before {
+    top: -7.5%;
+    left: -10%;
+    border-radius: 0 10rem 0 10rem;
+  }
+
+  /* services */
+  .services__header {
+    text-align: center;
+  }
+
+  .services__cards-container {
+    display: grid;
+    gap: 3.2rem;    
+    grid-auto-flow: column;
+  }
+
+  .card {
+    width: 35.2rem;
+    height: 35.2rem;
   }
 }
 /* Greater than 1023px */
