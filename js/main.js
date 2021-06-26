@@ -15,20 +15,51 @@ for ( const link of links ) {
   } );
 }
 
-/* When scroll the page, show the chevron-up  */
-function showBackToTop() {
-  const chevron = document.querySelector( '.back-to-top' );
-  if( window.scrollY > 400 ) {
-    chevron.classList.add('--show-arrow');
-  } else {
-    chevron.classList.remove('--show-arrow');
+/* Active menu as the section visible on the page */
+const sections = document.querySelectorAll( 'main section[id]' );
+function activeMenuAtCurrentSection() {
+  // define uma 'linha imaginária'
+  const checkpoint = window.pageYOffset + ( ( window.innerHeight / 8 ) * 4 ); ; 
+
+  // quando o scroll da página passar pela 'linha' pegar o id da seção exibida na tela e adicionar classe ao link
+  for( const section of sections ) {
+    const sectionId = section.getAttribute( 'id' );
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+    const checkpointStart = checkpoint >= sectionTop;
+    const checkpointEnd = checkpoint <= sectionTop + sectionHeight;
+    if( checkpointStart && checkpointEnd) {
+      addActiveClass( sectionId );
+    } else {
+      removeActiveClass( sectionId );
+    }
   }
 }
 
+/* Switch active class to link */
+function addActiveClass( sectionId ) {
+  document
+    .querySelector('.menu__list a[href*=' + sectionId + ']')
+    .classList.add('--active');
+}
+
+function removeActiveClass( sectionId ) {
+  document
+    .querySelector('.menu__list a[href*=' + sectionId + ']')
+    .classList.remove('--active');
+}
+ 
+
+window.addEventListener( 'scroll', function() {
+  changeHeaderShadow();
+  showBackToTop();
+  activeMenuAtCurrentSection();
+});
+
 /* When scrolling the page, add the box's shadow to the header */
+const header = document.querySelector('.header');
+const navHeight = header.offsetHeight;
 function changeHeaderShadow() {
-  const header = document.querySelector('.header');
-  const navHeight = header.offsetHeight;
   if( window.scrollY >= navHeight ) {
     header.classList.add('--scroll-shadow');
   } else {
@@ -36,10 +67,15 @@ function changeHeaderShadow() {
   }
 }
 
-window.addEventListener( 'scroll', function() {
-  changeHeaderShadow();
-  showBackToTop();
-});
+/* When scroll the page, show the chevron-up  */
+const chevron = document.querySelector( '.back-to-top' );
+function showBackToTop() {
+  if( window.scrollY > 400 ) {
+    chevron.classList.add('--show-arrow');
+  } else {
+    chevron.classList.remove('--show-arrow');
+  }
+}
 
 /* Slider (swiper) */
 const swiper = new Swiper( '.swiper-container',  {
